@@ -1,8 +1,9 @@
-const Schema= require('mongoose').schema;
+const mongoose= require('mongoose');
+const Schema= require('mongoose').Schema;
 
 const categorySchema= new Schema({
 	name:{
-		type: true,
+		type: String,
 		required: true,
 		trim: true,
 		maxlength: 32

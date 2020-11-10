@@ -7,12 +7,17 @@ const userController= {
 	},
 	
 	encrypt_password: function(password){
-		const sha1= crypto.createHash('sha1');
-		sha1.update(password);
-		return sha1.digest('hex');
+		try{
+			const sha1= crypto.createHash('sha1');
+			sha1.update(password);
+			return sha1.digest('hex');
+		}catch(error){
+			res.json({Erreur: error});
+			return;
+		}	
 	},
 	
-	connect: function(req, res){
+	signin: function(req, res){
 
 		if(typeof req.body.email==='undefined' || typeof req.body.password==='undefined'){
 			res.json({Erreur: 'Les champs sont manquants'});
@@ -77,6 +82,7 @@ const userController= {
 			user.hashed_password= hashed_password;
 			
 			user.validate( (error) => {
+				//La methode validate valiser le modele selon son schema
 				if(error) {res.json(error); return}
 				
 				user.save( (error) => {
@@ -93,8 +99,8 @@ const userController= {
 	}
 },
 	
-	signin: function(){
-		console.log('signin');
+	foo: function(){
+		console.log('foo');
 	}
 }
 

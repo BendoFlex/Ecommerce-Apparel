@@ -19,7 +19,7 @@ const userSchema= new Schema({
 		required: true,
 	},
 	
-	salt: String, // salt used to generate hashed passwords
+	salt: String, // salt utilisé pour generer des mots de passe hashed
 	
 	role: {
 		type: Number,

@@ -6,13 +6,13 @@ const userRoute= () => {
 	const router= express.Router();
 	
 	//Creer un nouvel utilisateur admin ou client
-	router.route('/user/create')
+	router.route('/create')
 	.post( (req, res, next) => {
 		userController.create(req, res);
 	});
 	
 	//Connection d'un utilisateur
-	router.route('/user/signin')
+	router.route('/signin')
 	.post( (req, res, next) => {
 		userController.connect(req, res);
 	});

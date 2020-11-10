@@ -1,5 +1,6 @@
 const config= {
 	SERVER_PORT: process.env.port || 8080,
+	API_V: '/api/v1',
 	DB: {
 		HOST: 'localhost',
 		PORT: 27017,

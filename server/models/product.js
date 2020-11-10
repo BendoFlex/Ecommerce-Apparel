@@ -1,8 +1,9 @@
-const Schema= require('mongoose').schema;
+const mongoose = require('mongoose');
+const Schema= require('mongoose').Schema;
 
-const productSchema= new mongoose.schema({
+const productSchema= new Schema({
 	category: {
-		type: ObjectId,
+		type: Schema.Types.ObjectId,
 		ref: 'Category',
 		required: true,
 	},
@@ -26,7 +27,7 @@ const productSchema= new mongoose.schema({
 	
 	quantity: {
 		type: Number
-	}
+	},
 	
 	sold: {
 		type: Number,
@@ -36,12 +37,7 @@ const productSchema= new mongoose.schema({
 	photo: {
 		data: Buffer,
 		ContentType: String
-	},
-	
-	shipping: {
-		type: Array,
-		required : false
 	}
 });
 
-module.exports= mongoose.module('Product',productSchema);
+module.exports= mongoose.model('Product',productSchema);
